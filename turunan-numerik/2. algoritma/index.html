@@ -1,0 +1,799 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.7">
+    
+    
+      
+        <title>Algoritma - Rangkuman Komputasi Numerik</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#algoritma" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Rangkuman Komputasi Numerik" class="md-header__button md-logo" aria-label="Rangkuman Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rangkuman Komputasi Numerik
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Algoritma
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Rangkuman Komputasi Numerik" class="md-nav__button md-logo" aria-label="Rangkuman Komputasi Numerik" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Rangkuman Komputasi Numerik
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Tentang
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Turunan numerik
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Turunan numerik" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Turunan numerik
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20teori/" class="md-nav__link">
+        Teori
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Algoritma
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Algoritma
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-maju" class="md-nav__link">
+    Hampiran Selisih Maju
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Maju">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_1" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-mundur" class="md-nav__link">
+    Hampiran Selisih Mundur
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Mundur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar_1" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_2" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor_1" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi_1" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-pusat" class="md-nav__link">
+    Hampiran Selisih Pusat
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Pusat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar_2" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_3" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor_2" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi_2" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    Referensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20kode/" class="md-nav__link">
+        Kode
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-maju" class="md-nav__link">
+    Hampiran Selisih Maju
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Maju">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_1" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-mundur" class="md-nav__link">
+    Hampiran Selisih Mundur
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Mundur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar_1" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_2" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor_1" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi_1" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hampiran-selisih-pusat" class="md-nav__link">
+    Hampiran Selisih Pusat
+  </a>
+  
+    <nav class="md-nav" aria-label="Hampiran Selisih Pusat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rumus-dasar_2" class="md-nav__link">
+    Rumus Dasar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#algoritma_3" class="md-nav__link">
+    Algoritma
+  </a>
+  
+    <nav class="md-nav" aria-label="Algoritma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deret-taylor_2" class="md-nav__link">
+    Deret Taylor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polinom-interpolasi_2" class="md-nav__link">
+    Polinom Interpolasi
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referensi" class="md-nav__link">
+    Referensi
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="algoritma">Algoritma</h1>
+<h2 id="hampiran-selisih-maju">Hampiran Selisih Maju</h2>
+<p>Hampiran selisih maju mencari turunan yaitu mencari kemiringan garis (gradien) dengan mengambil selisih yang ada di depannya yang ditunjukkan pada gambar di bawah ini<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p><img alt="Grafik Hampiran Selisih Maju" src="../assets/1.png" /></p>
+<p>dimana x0 - x1 dapat diganti dengan h</p>
+<div class="arithmatex">\[
+(\frac{y_1-y_0}{x_0-x_1}) = (\frac{f_1-f_0}{h})
+\]</div>
+<h3 id="rumus-dasar">Rumus Dasar</h3>
+<div class="arithmatex">\[
+f'(x_0) = (\frac{f(x_o+h)-f(x_0)}{h}) = (\frac{f_1-f_0}{h})
+\]</div>
+<p>h -&gt; 0 (h mendekati 0) agar error relatifnya kecil juga, untuk mencari errornya dapat dilakukan dengan menghitung seperti rumus di bawah ini, yaitu melakukan pembagian antara turunan eksak (sebenarnya) dengan turunan maju</p>
+<div class="arithmatex">\[
+E(f) = -(\frac{1}{2})hf'(x)
+\]</div>
+<h3 id="algoritma_1">Algoritma</h3>
+<h4 id="deret-taylor">Deret Taylor</h4>
+<p>Menjabarkan turunan sesuai dengan deret taylor, dimana diketahui bahwa rumus dasar dari deret taylor adalah seperti ini</p>
+<div class="arithmatex">\[
+\sum_{k=0}^\infty \frac{f^{(n)}(a)}{n!} (x-a)^n
+\]</div>
+<p>Sehingga untuk mencari hampiran selisih maju dengan deret taylor akan menjadi seperti ini,</p>
+<div class="arithmatex">\[
+f(x_{i+1}) = f(x_i) + \frac{x_{i+1}-x_i}{1!} f'(x_i) + \frac{(x_{i+1}-x_i)^2}{2!} f''(x_i)+..
+\]</div>
+<p>Rumus di atas apabila diteruskan akan mendapatkan hasil seperti berikut,</p>
+<div class="arithmatex">\[
+O(h) = h/2 f'' (t), x_i&lt;t&lt;x_{i+1}
+\]</div>
+<p>Untuk nilai f di x0 dan x1 menjadi dimana O(h) merupakan orde errornya yang tergantung nilai dari h yang merupakan galat pemotongan dari f sebelumnya. Berikut adalah rumus turunan pertama selisih maju dengan deret taylor</p>
+<div class="arithmatex">\[
+f0' = \frac{f_1 - f_0}{h} + O(h)
+\]</div>
+<h4 id="polinom-interpolasi">Polinom Interpolasi</h4>
+<p>Polinom newton-gregory dapat digunakan untuk menyelesaikan permasalahan turunan numerik yang memiliki titik-titik yang berjarak sama sehingga rumus yang dipakai lebih sederhana dibandingkan polinom interpolasi yang lain. Berikut ini adalah polino newton-gregory untuk selisih maju pada turunan pertama</p>
+<div class="arithmatex">\[
+f'(x_0) = \frac{3f_0 + 4f_1 - f_2}{2h}
+\]</div>
+<h2 id="hampiran-selisih-mundur">Hampiran Selisih Mundur</h2>
+<p>Hampiran selisih mundur mencari turunan yaitu mencari kemiringan garis (gradien) dengan mengambil selisih yang ada di belakangnya / bawahnya yang ditunjukkan pada gambar di bawah ini</p>
+<p><img alt="Grafik Hampiran Selisih Maju" src="../assets/2.png" /></p>
+<h3 id="rumus-dasar_1">Rumus Dasar</h3>
+<div class="arithmatex">\[
+f'(x_0) = (\frac{f(x_o)-f(x_0+h)}{h}) = (\frac{f_0-f_1}{h})
+\]</div>
+<h3 id="algoritma_2">Algoritma</h3>
+<h4 id="deret-taylor_1">Deret Taylor</h4>
+<p>Sama halnya dengan step selisih maju, namun rumus untuk mencari hampiran selisih mundur dengan deret taylor terdapat perubahan yaitu dimulai dari yang terakhir sampai yang awal</p>
+<div class="arithmatex">\[
+f(x_{i-1}) = f(x_i) + \frac{x_{i+1}-x_i}{1!} f'(x_i) + \frac{(x_{i+1}-x_i)^2}{2!} f''(x_i)+..
+\]</div>
+<p>Rumus di atas apabila diteruskan akan mendapatkan hasil seperti berikut,</p>
+<div class="arithmatex">\[
+O(h) = -h/2 f'' (t), x_{i-1}&lt;t&lt;x_{i}
+\]</div>
+<p>Sehingga rumus untuk turunan pertama selisih mundur dengan deret taylor yaitu,
+$$
+f0' = (\frac{f_0-f_1}{h}) + O(h)
+$$</p>
+<h4 id="polinom-interpolasi_1">Polinom Interpolasi</h4>
+<p>Polinom newton-gregory dapat digunakan untuk menyelesaikan permasalahan turunan numerik yang memiliki titik-titik yang berjarak sama sehingga rumus yang dipakai lebih sederhana dibandingkan polinom interpolasi yang lain. Berikut ini adalah polino newton-gregory untuk selisih maju untuk titik-titik x0 &amp; x-1 pada turunan pertama</p>
+<div class="arithmatex">\[
+f'\left( x_{0}\right) =1/h\left( \nabla f\circ \right) =\dfrac{f_{0}-f_{-1}}{h}
+\]</div>
+<h2 id="hampiran-selisih-pusat">Hampiran Selisih Pusat</h2>
+<p>Hampiran selisih pusat mencari turunan yaitu mencari kemiringan garis (gradien) dengan mencari gabungan dari selisih maju dan selisih mundur. </p>
+<p><img alt="Grafik Hampiran Selisih Maju" src="../assets/3.png" /></p>
+<h3 id="rumus-dasar_2">Rumus Dasar</h3>
+<div class="arithmatex">\[
+f'(x_0) = (\frac{f(x_o+h)-f(x_o-h)}{2h}) = (\frac{f_1-f_{-1}}{2h})
+\]</div>
+<h3 id="algoritma_3">Algoritma</h3>
+<h4 id="deret-taylor_2">Deret Taylor</h4>
+<p>Perhitungan dengan menggunakan rumus mengurangkan persamaan maju dan mundur, yang dapat dilihat dari rumus di bawah ini</p>
+<div class="arithmatex">\[
+f(x_{i+1})-f(x_{i-1}) = 2hf'_i + h^3/3 fi'' + ...
+\]</div>
+<p>Rumus di atas apabila diteruskan akan mendapatkan hasil seperti berikut,</p>
+<div class="arithmatex">\[
+O(h^2) = -h/6 f'''(t), x_{i-1}&lt;t&lt;x_{i+1}
+\]</div>
+<p>Sehingga rumus turunan pertama untuk selisih pusat ,
+$$
+f0' = (\frac{f_1-f_{-1}}{2h}) + O(h^2)
+$$</p>
+<h4 id="polinom-interpolasi_2">Polinom Interpolasi</h4>
+<p>Polinom newton-gregory dapat digunakan untuk menyelesaikan permasalahan turunan numerik yang memiliki titik-titik yang berjarak sama sehingga rumus yang dipakai lebih sederhana dibandingkan polinom interpolasi yang lain. Berikut ini adalah polino newton-gregory untuk selisih pusat untuk titik-titik x-1, x0, dan x1 pada turunan pertama</p>
+<div class="arithmatex">\[
+f'\left( x_{0}\right) =\dfrac{f_{1}-f_{-1}}{2h}
+\]</div>
+<h2 id="referensi">Referensi</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://informatika.stei.itb.ac.id/~rinaldi.munir/MetNum/2010-2011/Turunan%20Numerik.pdf">Materi Kuliah Komputasi Numerik ITB Prof. Rinaldi Munir</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../1.%20teori/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Teori" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Teori
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../3.%20kode/" class="md-footer__link md-footer__link--next" aria-label="Next: Kode" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Kode
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
