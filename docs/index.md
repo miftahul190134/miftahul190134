@@ -14,4 +14,4 @@
 Komputasi numerik merupakan metode numerik yang memanfaatkan bahasa pemrograman komputer untuk melakukan iterasi perhitungan numerik yang tidak dapat diselesaikan secara manual
 
 ???+ note
-    Konten diupdate berdasarkan tugas per minggunya
+    Konten diupdate berdasarkan tugas
