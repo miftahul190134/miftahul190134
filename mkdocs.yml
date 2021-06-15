@@ -1,6 +1,16 @@
 site_name: Rangkuman Komputasi Numerik
 theme:
   name: material
+nav:
+    - Tentang: 'index.md'
+    - "Turunan Numerik":
+      - "Teori": "turunan-numerik/1. teori.md"
+      - "Algoritma": "turunan-numerik/2. algoritma.md"
+      - "Kode": "turunan-numerik/3. kode.md"
+    - "Numerical Solution of System of Linear Algebraic Equations":
+      - "Teori": "sistem-persamaan-linear/1. teori.md"
+      - "Algoritma": "sistem-persamaan-linear/2. algoritma.md"
+      - "Kode": "sistem-persamaan-linear/3. kode.md"
 markdown_extensions:
   - footnotes
   - admonition
