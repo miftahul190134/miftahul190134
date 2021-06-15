@@ -11,6 +11,10 @@ nav:
       - "Teori": "sistem-persamaan-linear/1. teori.md"
       - "Algoritma": "sistem-persamaan-linear/2. algoritma.md"
       - "Kode": "sistem-persamaan-linear/3. kode.md"
+    - "Numerical Solutions of Ordinary Differential equations":
+      - "Teori": "diferensial/1. teori.md"
+      - "Algoritma": "diferensial/2. algoritma.md"
+      - "Kode": "diferensial/3. kode.md"
 markdown_extensions:
   - footnotes
   - admonition
